@@ -21,10 +21,10 @@ all:
 		@make $(NAME)
 
 $(OBJS_DIR)%.o:	$(SRCS_DIR)%.c
-				@(CC) $(CFLAGS) -c $^ -o $@
+				@$(CC) $(CFLAGS) -c $^ -o $@
 
 $(NAME):	$(OBJS)
-			@(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+			@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 			@echo "graphing executable created!"
 
 clean:

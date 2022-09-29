@@ -7,7 +7,7 @@ then
 	brew install graphviz
 elif [ $uname == "Linux" ];
 then
-	sudo apt install graphviz
+	apt install graphviz
 else
 	echo "Not supported platform"
 fi

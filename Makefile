@@ -1,13 +1,15 @@
 # Variables
 NAME	=	graphing
 CC		=	gcc
-CFLAGS	=	-Wall -Werror -Wextra
+CFLAGS	=	-Wall -Werror -Wextra $(HEADER)
+HEADER	=	-I $(INCLUDES_DIR)
 SRCS_DIR	=	srcs/
 OBJS_DIR	=	objs/
+INCLUDES_DIR	=	includes/
 
 # Sources
 
-SRC_FILES	=	
+SRC_FILES	=	main graphing
 
 SRCS	=	$(addprefix $(SRCS_DIR), $(addsuffix .c, $(SRC_FILES)))
 OBJS	=	$(addprefix $(OBJS_DIR), $(addsuffix .o, $(SRC_FILES)))

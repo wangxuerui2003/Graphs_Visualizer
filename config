@@ -1,0 +1,13 @@
+#!/bin/bash
+
+uname="$(uname -s)"
+
+if [ $uname == "Darwin" ];
+then
+	brew install graphviz
+elif [ $uname == "Linux" ];
+then
+	sudo apt install graphviz
+else
+	echo "Not supported platform"
+fi

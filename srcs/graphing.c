@@ -1,4 +1,6 @@
-#include "../includes/graphing.h"
+#include "graphing.h"
+
+extern	char	g_nodes[MAX_NODES][MAX_STRLEN];
 
 t_graph	*init_graph(unsigned int num_nodes)
 {
@@ -51,6 +53,7 @@ bool	add_node(t_graph *graph, unsigned int from, unsigned int to)
 		return (false);
 	}
 	graph->graph[from][to] = true;
+	fprintf(stderr, GREEN"Added %s->%s\n"RESET, g_nodes[from], g_nodes[to]);
 	return (true);
 }
 
@@ -66,5 +69,6 @@ bool	delete_node(t_graph *graph, unsigned int from, unsigned int to)
 		return (false);
 	}
 	graph->graph[from][to] = false;
+	fprintf(stderr, MAGENTA"Deleted %s->%s\n"RESET, g_nodes[from], g_nodes[to]);
 	return (true);
 }

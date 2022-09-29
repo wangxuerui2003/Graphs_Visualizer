@@ -1,4 +1,4 @@
-#include "../includes/graphing.h"
+#include "graphing.h"
 
 char	g_nodes[MAX_NODES][MAX_STRLEN];
 
@@ -8,7 +8,7 @@ int	get_choice(void)
 
 	while (true)
 	{
-		fprintf(stderr, "1. Add node, 2. Delete node, 3. Done: ");
+		fprintf(stderr, YELLOW"1. Add node, 2. Delete node, 3. Done: "RESET);
 		scanf("%s", choice);
 		if (atoi(choice) == ADD_NODE || atoi(choice) == DELETE_NODE)
 		{
@@ -20,7 +20,7 @@ int	get_choice(void)
 		}
 		else
 		{
-			fprintf(stderr, "Invalid choice\n");
+			fprintf(stderr, RED"Invalid choice\n"RESET);
 		}
 	}
 }
@@ -39,7 +39,7 @@ unsigned int	get_from(void)
 		}
 		else
 		{
-			fprintf(stderr, "Invalid choice\n");
+			fprintf(stderr, RED"Invalid choice\n"RESET);
 		}
 	}
 }
@@ -58,7 +58,7 @@ unsigned int	get_to(void)
 		}
 		else
 		{
-			fprintf(stderr, "Invalid choice\n");
+			fprintf(stderr, RED"Invalid choice\n"RESET);
 		}
 	}
 }
@@ -90,7 +90,7 @@ int main(int ac, char **av)
 
 	if (ac != 2)
 	{
-		fprintf(stderr, "Usage: ./graph (num_nodes)");
+		fprintf(stderr, RED"Usage: ./graph (num_nodes)"RESET);
 		return (1);
 	}
 
@@ -98,8 +98,8 @@ int main(int ac, char **av)
 	// Check if the number of nodes is reasonable
 	if (num_nodes <= 0)
 	{
-		fprintf(stderr, "Non numeric value or non-reasonable num_nodes, ");
-		fprintf(stderr, "Please give a correct argument!\n");
+		fprintf(stderr, RED"Non numeric value or non-reasonable num_nodes, ");
+		fprintf(stderr, "Please give a correct argument!\n"RESET);
 		return (1);
 	}
 
@@ -107,7 +107,7 @@ int main(int ac, char **av)
 
 	for (unsigned int i = 0; i < num_nodes; i++)
 	{
-		fprintf(stderr, "Give name for node %d: ", i);
+		fprintf(stderr, YELLOW"Give name for node %d: "RESET, i);
 		scanf("%s", user_input);
 		strcpy(g_nodes[i], user_input); 
 	}
@@ -142,6 +142,7 @@ int main(int ac, char **av)
 			}
 			free(graph->graph);
 			free(graph);
+			fprintf(stderr, CYAN"Graph generated!\n"RESET); 
 			return (0);
 		}
 	}

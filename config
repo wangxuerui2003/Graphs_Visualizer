@@ -2,11 +2,12 @@
 
 uname="$(uname -s)"
 
-if [ $uname == "Darwin" ];
+if [ $uname == "Darwin" ]
 then
 	brew install graphviz
-elif [ $uname == "Linux" ];
+elif [ $uname == "Linux" ]
 then
+	apt update
 	apt install graphviz
 else
 	echo "Not supported platform"
